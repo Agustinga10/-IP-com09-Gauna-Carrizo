@@ -25,7 +25,7 @@ def getTypes(poke_data):
 
 # Usado cuando la información viene del template, para transformarla en una Card antes de guardarla en la base de datos.
 def fromTemplateIntoCard(templ):
-    types_str = temmpl.POST.get("types")
+    types_str = templ.POST.get("types")
     try:
         types = ast.literal_eval(types_str) if types_str else []
     except:

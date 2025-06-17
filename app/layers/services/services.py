@@ -11,12 +11,12 @@ def getAllImages(name=None, type_filter=None):
     json_collection = transport.getAllImages()
     images = []
 
-    for raw_image in json_collection:
+    for item in json_collection:
         if 'image' in item:
             card = translator.fromRequestIntoCard(item)
             if name and name.lower() not in card.name.lower():
                 continue
-            if type_fiilter and card.type.lower() != type_filter.lower():
+            if type_filter and card.type.lower() != type_filter.lower():
                 continue
             images.append(card)
     return images
