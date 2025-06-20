@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
-from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.index_page, name='index-page'),
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('login/', views.login, name='login'),
+    path('register/', views.register, name='registro'),
     path('home/', views.home, name='home'),
     
     path('buscar/', views.search, name='buscar'),
@@ -16,4 +16,5 @@ urlpatterns = [
     path('favourites/delete/', views.deleteFavourite, name='borrar-favorito'),
 
     path('exit/', views.exit, name='exit'),
+    path('delete-account/', views.delete_account, name='delete-account'),
 ]
