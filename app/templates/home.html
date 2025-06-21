@@ -54,7 +54,7 @@
                             <p class="card-text">
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                     {% for poketype in img.types %}
-                                    <strong><em>{{poketype}}</em></strong>
+                                    <span class="type-badge {{ poketype|lower }}-type">{{ poketype|capfirst }}</span>
                                     {% endfor %} 
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
