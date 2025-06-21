@@ -1,0 +1,37 @@
+{% extends 'header.html' %}
+{% block content %}
+<main class="container mt-5">
+    <h1 class="text-center">{{ card.name }} #{{ card.id }}</h1>
+    <div class="card mx-auto" style="max-width: 600px;">
+        <img src="{{ card.image }}" class="card-img-top" alt="{{ card.name }}">
+        <div class="card-body">
+            <p><strong>Altura:</strong> {{ card.height }}</p>
+            <p><strong>Peso:</strong> {{ card.weight }}</p>
+            <p><strong>Nivel base:</strong> {{ card.base }}</p>
+            <p><strong>Tipos:</strong>
+                {% for t in card.types %}
+                    <span class="badge bg-info text-dark">{{ t }}</span>
+                {% endfor %}
+            </p>
+
+            {% if request.user.is_authenticated %}
+                {% if is_fav %}
+                    <p>✔️ Este Pokémon ya está en tus favoritos.</p>
+                {% else %}
+                    <form method="post" action="{% url 'agregar-favorito' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="name" value="{{ card.name }}">
+                        <input type="hidden" name="height" value="{{ card.height }}">
+                        <input type="hidden" name="weight" value="{{ card.weight }}">
+                        <input type="hidden" name="types" value="{{ card.types }}">
+                        <input type="hidden" name="image" value="{{ card.image }}">
+                        <button type="submit" class="btn btn-primary">❤️ Agregar a Favoritos</button>
+                    </form>
+                {% endif %}
+            {% else %}
+                <p><em>Iniciá sesión para agregar a favoritos.</em></p>
+            {% endif %}
+        </div>
+    </div>
+</main>
+{% endblock %}
