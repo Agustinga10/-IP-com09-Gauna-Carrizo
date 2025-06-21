@@ -29,3 +29,12 @@ def getAllImages():
 def get_type_icon_url_by_id(type_id):
     base_url = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iii/colosseum/'
     return f"{base_url}{type_id}.png"
+
+def getImageById(pokemon_id):
+    response = requests.get(config.STUDENTS_REST_API_URL + str(pokemon_id))
+    if not response.ok:
+        return None
+    data = response.json()
+    if 'detail' in data and data['detail'] == 'Not found.':
+        return None
+    return data
