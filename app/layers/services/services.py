@@ -90,3 +90,9 @@ def get_type_icon_url_by_name(type_name):
 def deleteAllFavourites(request):
     # Eliminar todos los favoritos del usuario
     repositories.delete_all_favourites(request.user)
+
+def getCardById(pokemon_id):
+    raw_data = transport.getImageById(pokemon_id)
+    if not raw_data:
+        return None
+    return translator.fromRequestIntoCard(raw_data)
