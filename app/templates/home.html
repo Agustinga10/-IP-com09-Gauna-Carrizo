@@ -29,6 +29,12 @@
             <input type="hidden" name="type" value="grass">
             <button type="submit" class="btn btn-success">PLANTA</button>
         </form>
+
+        <form method="post" action="{% url 'filter_by_type' %}">
+            {% csrf_token %}
+            <input type="hidden" name="type" value="fire">
+            <button type="submit" class="btn btn-danger">ELECTRICO</button>
+        </form>
     </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
