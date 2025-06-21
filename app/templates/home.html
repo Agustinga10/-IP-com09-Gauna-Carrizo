@@ -45,7 +45,12 @@
 
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h3 class="card-title">{{ img.name }} #{{ img.id }} <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Master Ball"></h3>
+                            <h3 class="card-title">
+                                {{ img.name }} #{{ img.id }}
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Master Ball">
+                            </h3>
+                            <a href="{% url 'pokemon-detail' img.id %}" class="btn btn-outline-secondary btn-sm">🔍 Ver Detalle</a>
+
                             <p class="card-text">
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                     {% for poketype in img.types %}
