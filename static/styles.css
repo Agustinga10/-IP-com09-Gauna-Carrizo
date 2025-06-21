@@ -140,3 +140,68 @@ table.table td i {
     margin-top: 6px;
     font-size: 95%;
 }
+.type-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin: 0 3px 3px 0;
+}
+
+/* Colores por tipo Pokémon */
+.fire-type {
+    background-color: #f08030;
+}
+.water-type {
+    background-color: #6890f0;
+}
+.grass-type {
+    background-color: #78c850;
+}
+.electric-type {
+    background-color: #f8d030;
+    color: black; /* texto oscuro para fondo claro */
+}
+.flying-type {
+    background-color: #a890f0;
+}
+.bug-type {
+    background-color: #a8b820;
+}
+.poison-type {
+    background-color: #a040a0;
+}
+.normal-type {
+    background-color: #a8a878;
+}
+.ground-type {
+    background-color: #e0c068;
+}
+
+/* Más tipos si querés */
+.rock-type {
+    background-color: #b8a038;
+}
+.ghost-type {
+    background-color: #705898;
+}
+.dragon-type {
+    background-color: #7038f8;
+}
+.ice-type {
+    background-color: #98d8d8;
+}
+.fairy-type {
+    background-color: #ee99ac;
+}
+.fighting-type {
+    background-color: #c03028;
+}
+.steel-type {
+    background-color: #b8b8d0;
+}
+.dark-type {
+    background-color: #705848;
+}
