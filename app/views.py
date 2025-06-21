@@ -143,3 +143,17 @@ def delete_account(request):
             })
     
     return render(request, 'delete_account.html')
+
+def pokemon_detail(request, id):
+    # Traer el detalle del Pokémon por ID usando el service
+    card = services.getCardById(id)
+    if not card:
+        return render(request, 'error.html', {'message': 'Pokémon no encontrado'})
+    
+    # Saber si está en favoritos
+    is_fav = False
+    if request.user.is_authenticated:
+        favourite_list = services.getAllFavourites(request)
+        is_fav = card in favourite_list
+
+    return render(request, 'detail.html', {'card': card, 'is_fav': is_fav})
